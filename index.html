@@ -1,0 +1,216 @@
+<html>
+<head>
+	<title>VentureKiwi Car Rentals</title>
+	<!-- Slick -->
+	<link rel="stylesheet" type="text/css" href="CSS/slick.css">
+	<link rel="stylesheet" type="text/css" href="CSS/slick-theme.css">
+	<!-- MapBox -->
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css' rel='stylesheet' />
+	<!-- MapBox Directions -->
+	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
+	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+	<!-- Jquery Modal -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+	<!-- Original CSS -->
+	<link rel="stylesheet" type="text/css" href="CSS/styles.css">
+</head>
+<body>
+	<div class="imgdiv"><img src="IMG/logo.png" alt="logo"></div>
+	<div class="container">
+		<div class="mapslider">
+			<div class="mapdiv title">
+				<h1 class="largetext">Find the car that's right for your journey</h1>
+				<h3 class="subheadertitle">Fill out a quick form so we can find a car for you, it will only take a minute</h3>
+			</div>
+			<div class="mapdiv" id="map"></div>
+			<div class="mapdiv">
+				<div class="cargrid">
+					<div class="carimgdiv">
+						<div class="cargrid-subheaderdiv"><h3 class="cargrid-subheader">Car subtitle</h3></div>
+						<div class="cargrid-titlediv"><h3 class="cargrid-title">Car name</h3></div>
+						<div class="cargrid-carimgdiv"><img class="cargrid-img" alt="car image" src="http://via.placeholder.com/440x240"></div>
+					</div>
+					<div class="carinfodiv">
+						<div class="cargrid-seatingdiv"><h3 class="cargrid-seating">Number of seats</h3></div>
+						<div class="cargrid-fueleffdiv"><h3 class="cargrid-fueleff">Fuel efficiency</h3></div>
+						<div class="cargrid-descdiv"><p class="cargrid-desc">Brief description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p></div>
+
+					</div>
+					<div class="carpricingdiv">
+						<div class="cargrid-rentpricediv cargrid-smallprice"><small>Rent Cost</small><p class="cargrid-rentprice">Rent Price</p></div>
+						<div class="cargrid-gaspricediv cargrid-smallprice"><small>Fuel Cost</small><p class="cargrid-gasprice">Gas Price</p></div>
+						<div class="cargrid-totalpricediv cargrid-smallprice"><small>Total Cost</small><p class="cargrid-totalprice">Total Price</p></div>
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+		<div class="inputdiv">
+			<!-- FIRST SLIDE -->
+			<div>
+				<div class="titlearrowdiv">
+				<h1 class="midtext">Just click this arrow to get started</h1>
+				<i class="fa fa-hand-o-down"></i>
+				</div>
+			</div>
+			<!-- SECOND SLIDE -->
+			<div>
+				<div class="gridlarge">
+					<div class="centerdiv">
+						
+					</div>
+					<div class="centerdiv paddingdivbig">
+						<h3 class="subh3 largersub">Click on the map to place a startpoint and endpoint for your journey</h3>
+					</div>
+					<div class="centerdiv">
+						
+					</div>
+				</div>
+			</div>
+			<!-- THIRD SLIDE -->
+			<div>
+				<div class="grid">
+					<div class="centerdiv paddingdiv">
+						<h2 class="subh2">Pickup Date</h2>
+						<input class="dateinput" id="pickupdate" type="date">
+					</div>
+					<div class="centerdiv paddingdiv">
+						<h3 class="subh3">We reccommend atleast <span class="daysrec"></span> days according to your journey plan</h3>
+						<h3 class="subh3 subh3small">(Maximum length of 15 days)</h3>
+
+					</div>
+					<div class="centerdiv paddingdiv">
+						<h2 class="subh2">Return Date</h2>
+						<input class="dateinput" id="returndate" type="date">
+					</div>
+				</div>
+			</div>
+			<!-- FOURTH SLIDE -->
+			<div class="centerdiv">
+				<h2 class="subh2">Number of seats Required</h2>
+				<div class="grid">
+					<div class="rightdiv">
+						<i class="fa fa-arrow-left" id="seatdecrease" aria-hidden="true"></i>
+					</div>
+					<div class="centerdiv">
+						<h1 id="seath1" class="giantnumber">1</h1>
+					</div>
+					<div class="leftdiv">
+						<i class="fa fa-arrow-right" id="seatincrease" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+			<!-- FIFTH SLIDE -->
+			<div>
+				<div class="grid">
+					<div class="centerdiv paddingdivmed"><button class="buttonend" id="carbrowserbtn">View car browser</button></div>
+					<div class="centerdiv"></div>
+					<div class="centerdiv paddingdivmed"><button class="buttonend" id="contactbutton">Rent this</button></div>
+				</div>
+			</div>
+		</div>
+		<div class="buttondiv">
+			<i class="prevbtn fa fa-chevron-circle-left" aria-hidden="true"></i>
+			<i class="nextbtn fa fa-chevron-circle-right" aria-hidden="true"></i>
+		</div>
+	</div>
+
+	<!-- MODAL -->
+	<div class="modaldiv">
+		<div id="carmodal" class="modal modalpopup">
+
+			<div class="orangetitle">
+					<h1 class="modaltoptitle">Cars right for you</h1>
+				</div>
+
+			<div class="carselect">
+
+				<div class="carbox" id="largecar">
+					<h3 class="carsmalltext">Full Size SUV Auto</h3>
+					<h3 class="cartitle">Toyota Highlander</h3>
+					<img class="carimg" alt="car image" src="IMG/largecar.png">
+					<hr class="carhr">
+					<p class="carprice">$144.00/day</p>
+					<button class="carrent">Info & Rent</button>
+					<hr class="carhr">
+				</div>
+
+				<div class="carbox" id="motorbike">
+					<h3 class="carsmalltext">6 Speed XT1200ZE/ES</h3>
+					<h3 class="cartitle">Yamaha Super Tenere</h3>
+					<img class="carimg" alt="car image" src="IMG/motorbike.png">
+					<hr class="carhr">
+					<p class="carprice">$109.00/day</p>
+					<button class="carrent">Info & Rent</button>
+					<hr class="carhr">
+				</div>
+
+				<div class="carbox" id="smallcar">
+					<h3 class="carsmalltext">Small Size Hatch Auto</h3>
+					<h3 class="cartitle">Toyota Yaris</h3>
+					<img class="carimg" alt="car image" src="IMG/smallcar.png">
+					<hr class="carhr">
+					<p class="carprice">$129.00/day</p>
+					<button class="carrent">Info & Rent</button>
+					<hr class="carhr">
+				</div>
+
+				<div class="carbox" id="motorhome">
+					<h3 class="carsmalltext">People Mover Auto</h3>
+					<h3 class="cartitle">Toyota Hiace</h3>
+					<img class="carimg" alt="car image" src="IMG/motorhome.png">
+					<hr class="carhr">
+					<p class="carprice">$200.00/day</p>
+					<button class="carrent">Info & Rent</button>
+					<hr class="carhr">
+				</div>
+
+				<div class="errorcar">
+					<h3 class="cartitle">Sorry, there are no cars that match your specifications :(</h3>
+				</div>
+				<div class="backbuttondiv">
+					<button class="backbutton" id="backbutton">Go Back</button>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modaldiv">
+		<div id="contactmodal" class="modal modalpopup2">
+			<div class="orangetitle">
+				<h1 class="modaltoptitle">Contact Information</h1>
+			</div>
+			<div class="contactline">
+				<i class="fa fa-phone" aria-hidden="true"></i>
+				<h3 class="contacttitle">0800 67-47-37</h3>
+			</div>
+			<hr>
+			<div class="contactline">
+				<i class="fa fa-envelope" aria-hidden="true"></i>
+				<h3 class="contacttitle">johnsrentals@gmail.com</h3>
+			</div>
+			<hr>
+			<div class="backbuttondiv">
+				<button class="backbutton" id="backbutton2">Go Back</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+	<script src="JS/slick.js"></script>
+	<script src="JS/data.js"></script>
+	<script src="JS/scripts.js"></script>
+
+</body>
+</html>
